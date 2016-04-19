@@ -1,6 +1,4 @@
 
-from random import randint
-
 from aima.search import Problem
 from aima.search import breadth_first_search
 
@@ -16,69 +14,29 @@ class Jarras(Problem):
         self.actions = ['verterJ1aJ2', 'verterJ2aJ1', 'vaciarJ1', 'vaciarJ2',
                         'llenarJ1', 'llenarJ2']
         """
-        self.actions = ['vaciar', 'llenar']
-        return self.actions
+        actions = ['vaciar', 'llenar']
+        return actions
 
     def result(self, state, action):
-        print(state)
-        print(action)
-        if (action is 'vaciar'):
-            J1 = 0
-            J2 = 0
-            state = ('J1', J1, 'J2', J2)
-            return state
-        elif (action is 'llenar'):
-            J1 = 5
-            J2 = 3
-            state = ('J1', J1, 'J2', J2)
-            return state
-        '''
-        if (action is 'verterJ1aJ2'):
+        if action is 'vaciar':
 
-            J1 = state.J1
-            J2 = state.J2
+            if state[1] != 0 or state[3] != 0:
+                j1 = 0
+                j2 = 0
+                state = ('J1', j1, 'J2', j2)
+                return state
 
-            """
-            Verifica la cantidad que tiene la JARRA 2 con respecto a su
-            capacidad total
-            """
-            delta = self.size_J2 - J2
-
-            retirar_liquido = J1 - delta  # Retira liquido de la JARRA 1
-            new_J2 = retirar_liquido + J2
-
-            state.J1 = 3
-            state.J2 = 1
             return state
 
-        elif (action is 'verterJ2aJ1'):
-            state.J1 = 3
-            state.J2 = 1
-            return state
+        elif action is 'llenar':
 
-        elif (action is 'vaciarJ1'):
-            state.J1 = 3
-            state.J2 = 1
-            return state
+            if state[1] == 0 and state[3] == 0:
+                j1 = 5
+                j2 = 3
+                state = ('J1', j1, 'J2', j2)
+                return state
 
-        elif (action is 'vaciarJ2'):
-            state.J1 = 3
-            state.J2 = 1
             return state
-
-        elif (action is 'llenarJ1'):
-            state.J1 = 3
-            state.J2 = 1
-            return state
-
-        elif (action is 'llenarJ2'):
-            state.J1 = 3
-            state.J2 = 1
-            return state
-        else:
-            return state
-
-        '''
 
     def goal_test(self, state):
         return self.goal == state
@@ -91,26 +49,19 @@ class Jarras(Problem):
 
 
 def main():
-    """
-    initial = dict(J1=1, J2=4)
-    goal = dict(J1=5, J2=3)
-    initial_node = Node(initial)
-    goal_node = Node(goal)
-    # jarras_problema = Jarras(initial, goal)
-    jarras_problema = Jarras(initial_node.state, goal_node.state)
-    print(jarras_problema.initial)
-    print(jarras_problema.goal)
-    result = breadth_first_search(jarras_problema)
-    print(type(result))
-    """
 
     initial = ('J1', 1, 'J2', 4)
     goal = ('J1', 5, 'J2', 3)
     jarras_problema = Jarras(initial, goal)
-    # print(jarras_problema.initial)
-    # print(jarras_problema.goal)
     result = breadth_first_search(jarras_problema)
+    print("### Resultado ###")
+    print(result)
+    print("### Solucion ###")
     print(result.solution())
+
+    print("### Recorrido ###")
+    for node in result.path():
+        print(node)
 
 if __name__ == '__main__':
     main()
