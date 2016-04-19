@@ -10,11 +10,10 @@ class Jarras(Problem):
         self.goal = goal
 
     def actions(self, state):
-        """
-        self.actions = ['verterJ1aJ2', 'verterJ2aJ1', 'vaciarJ1', 'vaciarJ2',
-                        'llenarJ1', 'llenarJ2']
-        """
-        actions = ['vaciar', 'llenar']
+
+        actions = ['verterJ1aJ2', 'verterJ2aJ1', 'vaciarJ1', 'vaciarJ2', 'llenarJ1', 'llenarJ2']
+
+        #actions = ['vaciar', 'llenar']
         return actions
 
     def result(self, state, action):
