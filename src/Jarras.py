@@ -11,9 +11,9 @@ class Jarras(Problem):
 
     def actions(self, state):
 
-        actions = ['verterJ1aJ2', 'verterJ2aJ1', 'vaciarJ1', 'vaciarJ2', 'llenarJ1', 'llenarJ2']
+        # actions = ['verterJ1aJ2', 'verterJ2aJ1', 'vaciarJ1', 'vaciarJ2', 'llenarJ1', 'llenarJ2']
 
-        #actions = ['vaciar', 'llenar']
+        actions = ['vaciar', 'llenar']
         return actions
 
     def result(self, state, action):
