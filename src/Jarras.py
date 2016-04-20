@@ -12,10 +12,7 @@ class Jarras(Problem):
         self.capacidadJ2 = 3
 
     def actions(self, state):
-
         actions = ['verterJ1aJ2', 'verterJ2aJ1', 'vaciarJ1', 'vaciarJ2', 'llenarJ1', 'llenarJ2']
-
-        # actions = ['vaciar', 'llenar']
         return actions
 
     def result(self, state, action):
@@ -125,9 +122,23 @@ def main():
     for node in result.path():
         print(node)
 
-    print("### Ejemplo 2 ###")
+    print("### Ejemplo 3 ###")
     initial = ('J1', 5, 'J2', 0)
     goal = ('J1', 4, 'J2', 0)
+    jarras_problema = Jarras(initial, goal)
+    result = breadth_first_search(jarras_problema)
+    print("### Resultado ###")
+    print(result)
+    print("### Solucion ###")
+    print(result.solution())
+
+    print("### Recorrido ###")
+    for node in result.path():
+        print(node)
+
+    print("### Ejemplo 4 ###")
+    initial = ('J1', 2, 'J2', 2)
+    goal = ('J1', 0, 'J2', 1)
     jarras_problema = Jarras(initial, goal)
     result = breadth_first_search(jarras_problema)
     print("### Resultado ###")
