@@ -86,28 +86,6 @@ class Jarras(Problem):
             state = ('J1', state[1], 'J2', j2)
             return state
 
-        """"
-        if action is 'vaciar':
-
-            if state[1] != 0 or state[3] != 0:
-                j1 = 0
-                j2 = 0
-                state = ('J1', j1, 'J2', j2)
-                return state
-
-            return state
-
-        elif action is 'llenar':
-
-            if state[1] == 0 and state[3] == 0:
-                j1 = 5
-                j2 = 3
-                state = ('J1', j1, 'J2', j2)
-                return state
-
-            return state
-        """
-
     def goal_test(self, state):
         return self.goal == state
 
