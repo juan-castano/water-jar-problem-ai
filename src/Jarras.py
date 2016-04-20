@@ -125,9 +125,23 @@ def main():
     for node in result.path():
         print(node)
 
-    print("### Ejemplo 2 ###")
+    print("### Ejemplo 3 ###")
     initial = ('J1', 5, 'J2', 0)
     goal = ('J1', 4, 'J2', 0)
+    jarras_problema = Jarras(initial, goal)
+    result = breadth_first_search(jarras_problema)
+    print("### Resultado ###")
+    print(result)
+    print("### Solucion ###")
+    print(result.solution())
+
+    print("### Recorrido ###")
+    for node in result.path():
+        print(node)
+
+    print("### Ejemplo 4 ###")
+    initial = ('J1', 2, 'J2', 2)
+    goal = ('J1', 0, 'J2', 1)
     jarras_problema = Jarras(initial, goal)
     result = breadth_first_search(jarras_problema)
     print("### Resultado ###")
