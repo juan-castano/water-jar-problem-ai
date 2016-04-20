@@ -29,9 +29,11 @@ class Jarras(Problem):
 
             if deltaJ2 > 0:
 
-                if cantidadJ1 > deltaJ2:
-                    cantidadADepositar = cantidadJ1 - deltaJ2
+                if cantidadJ1 >= deltaJ2:
+                    quedaEnJ1 = cantidadJ1 - deltaJ2
+                    cantidadADepositar = cantidadJ1 - quedaEnJ1
                     j2 = cantidadJ2 + cantidadADepositar
+                    j1 = quedaEnJ1
                 else:
                     j2 = cantidadJ1 + cantidadJ2
                     j1 = 0
@@ -51,8 +53,10 @@ class Jarras(Problem):
             if deltaJ1 > 0:
 
                 if cantidadJ2 > deltaJ1:
-                    cantidadADepositar = cantidadJ2 - deltaJ1
+                    quedaEnJ2 = cantidadJ2 - deltaJ1
+                    cantidadADepositar = cantidadJ2 - quedaEnJ2
                     j1 = cantidadJ1 + cantidadADepositar
+                    j2 = quedaEnJ2
                 else:
                     j1 = cantidadJ2 + cantidadJ1
                     j2 = 0
